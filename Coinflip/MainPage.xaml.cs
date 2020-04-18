@@ -37,14 +37,12 @@ namespace Coinflip
         {
             // Prepare SDK instance
             VungleSDKConfig sdkConfig = new VungleSDKConfig();
-            sdkConfig.DisableBannerRefresh = true; // Default: false
+            sdkConfig.DisableBannerRefresh = false; // Default: false
             sdkInstance = AdFactory.GetInstance("5e9a5bb33f4c15000110043f", sdkConfig);
 
             // Prepare control
             vungleBottomBanner.AppID = "5e9a5bb33f4c15000110043f";
             vungleBottomBanner.Placement = "BOTTOM-8749976";
-            vungleBottomBanner.Width = 728;
-            vungleBottomBanner.Height = 90;
 
             // Event to load after init
             sdkInstance.OnInitCompleted += SdkInstance_OnInitCompleted;

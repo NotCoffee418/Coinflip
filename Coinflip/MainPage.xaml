@@ -9,12 +9,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <RelativePanel>
+    <Grid>
         <Vungle:VungleAdControl x:Name="vungleBottomBanner" AutomationProperties.AutomationId="vungleBottomBanner" IsBannerAd="True"
-            Width="320" Height="50" Margin="10" HorizontalAlignment="Left">
-            <Border BorderBrush="Black" BorderThickness="1" Margin="10">
-                <TextBlock Text="Banner Ads will show here..." VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </Border>
-        </Vungle:VungleAdControl>
-    </RelativePanel>
+             Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="728" MinHeight="90"/>
+    </Grid>
 </Page>
