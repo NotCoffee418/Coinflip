@@ -47,7 +47,7 @@ namespace Coinflip
             // Make it fit our min/max requirements
             int diff = max - min + 1;
             double multiplier = (1d / (double)UInt32.MaxValue) * diff;
-            return Convert.ToUInt32(min + (rngOutput * multiplier));
+            return Convert.ToUInt32(Math.Floor(min + (rngOutput * multiplier)));
         }
 
 
