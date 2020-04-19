@@ -55,5 +55,10 @@ namespace Coinflip
                     vungleBottomBanner.LoadAndPlayBannerAd("BOTTOM-8749976", VungleBannerSizes.BannerLeaderboard_728x90)
                   ));
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Logic.Flip();
+        }
     }
 }
