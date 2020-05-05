@@ -9,31 +9,18 @@ namespace Coinflip
 {
     public class Logic
     {
-        public struct CoinSide
-        {
-            public CoinSide(int id, string name, string imgPath)
-            {
-                Id = id;
-                Name = name;
-                ImgPath = imgPath;
-            }
-
-            public readonly int Id;
-            public readonly string Name;
-            public readonly string ImgPath;
-        }
 
         public static readonly List<CoinSide> coinSides = new List<CoinSide>()
         {
-            new CoinSide(0, "Heads", @"Assets\Images\usa-1939-5c-heads.png"),
-            new CoinSide(1, "Tails", @"Assets\Images\usa-1939-5c-heads.png"),
-            //new CoinSide(2, "Side", @"Assets\Images\usa-1939-5c-side.png"),
+            new CoinSide(0, "...", string.Empty),
+            new CoinSide(1, "Heads", @"Assets\Images\usa-1939-5c-heads.png"),
+            new CoinSide(2, "Tails", @"Assets\Images\usa-1939-5c-tails.png"),
+            //new CoinSide(3, "Side", @"Assets\Images\usa-1939-5c-side.png"),
         };
 
 
         private static RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
-        // todo: this is broken, first and last number both have 50% hits fewer than they should for some reason
         public static uint GenerateNumber(int min, int max)
         {
             if (max <= min)
@@ -53,8 +40,8 @@ namespace Coinflip
 
         public static CoinSide Flip()
         {
-            var x = GenerateNumber(0, 1);
-            return coinSides[0];
+            int randomNumber = Convert.ToInt32(GenerateNumber(1, 2));
+            return coinSides[randomNumber];
         }
     }
 }

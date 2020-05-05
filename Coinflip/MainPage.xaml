@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Vungle="using:VungleSDK.UI"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
 
     <Grid>
-        <local:CoinControl Name="testCoinControl" Width="200" Height="200"/>
+        <local:CoinControl x:Name="resultCoinControl" Width="200" Height="200"/>
         <Button Content="Button" Margin="539,753,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         
         

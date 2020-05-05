@@ -12,6 +12,6 @@
 
     <Grid>
         <Image Name="coinImage" Width="200" Height="200" Source="Assets\StoreLogo.png"/>
-        <ProgressRing Name="generatingProgressRing" IsActive="True" Width="50" Height="50"/>
+        <ProgressRing Name="generatingProgressRing" IsActive="False" Width="50" Height="50"/>
     </Grid>
 </UserControl>

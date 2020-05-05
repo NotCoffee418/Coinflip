@@ -28,7 +28,6 @@ namespace Coinflip
         public MainPage()
         {
             this.InitializeComponent();
-            InitVungleAd();
         }
 
         VungleAd sdkInstance = null;
@@ -56,9 +55,16 @@ namespace Coinflip
                   ));
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitVungleAd();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Logic.Flip();
+            var result = Logic.Flip();
+            resultCoinControl.SetCoinSide(result);
         }
+
     }
 }
