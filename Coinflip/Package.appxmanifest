@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="C0FD54CE-7DF0-486B-B54B-D9F17351C295"
-    Publisher="CN=night"
-    Version="1.0.0.0" />
+    Name="58516NotCoffee418.Coinflip-Flipacoin"
+    Publisher="CN=C0FD54CE-7DF0-486B-B54B-D9F17351C295"
+    Version="1.0.2.0" />
 
-  <mp:PhoneIdentity PhoneProductId="adea0275-d770-4660-bc81-cf91e3b2804c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="9716f82c-f25a-452d-a7eb-f41f8431211c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Coinflip</DisplayName>
+    <DisplayName>Coinflip - Flip a coin</DisplayName>
     <PublisherDisplayName>NotCoffee418</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,13 +32,18 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="Coinflip.App">
       <uap:VisualElements
-        DisplayName="Coinflip"
+        DisplayName="Coinflip - Flip a coin!"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Coinflip"
+        Description="Stuck making a decision? Just flip a coin!"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
