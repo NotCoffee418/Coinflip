@@ -31,6 +31,10 @@ namespace Coinflip
 
             // Load flip history
             historyList.ItemsSource = History.HistoryList;
+
+            // Watch backgroundworker to reenable flip btn
+            resultCoinControl.CoinFlippingVisualiserWorker.RunWorkerCompleted += 
+                CoinFlippingVisualiserWorker_RunWorkerCompleted;
         }
 
         VungleAd sdkInstance = null;
@@ -65,9 +69,17 @@ namespace Coinflip
 
         private void flipBtn_Click(object sender, RoutedEventArgs e)
         {
+            flipBtn.IsEnabled = false;
             var result = Logic.Flip();
             resultCoinControl.SetCoinSide(result);
         }
+        private void CoinFlippingVisualiserWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            // Reenable flip button when done flipping
+            flipBtn.IsEnabled = true;
+        }
+
+
         private void historyPaneToggleBtn_Checked(object sender, RoutedEventArgs e)
         {
             pageSplitView.IsPaneOpen = true;

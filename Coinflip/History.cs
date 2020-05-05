@@ -63,6 +63,11 @@ namespace Coinflip
 
             // json to memory
             EntryData = JsonConvert.DeserializeObject<List<Entry>>(json);
+            if (EntryData == null)
+            {
+                EntryData = new List<Entry>();
+                return;
+            }
 
             // Display recent history
             int i = 0;
