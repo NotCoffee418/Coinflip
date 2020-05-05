@@ -22,7 +22,7 @@ namespace Coinflip
         public HistoryItem(CoinSide side, string timeString)
         {
             this.InitializeComponent();
-            coinImg.Source = side.ImgUri;
+            coinImg.Source = side.IconUri;
             resultTxt.Text = side.Name;
             timeTxt.Text = timeString;
         }

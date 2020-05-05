@@ -12,8 +12,8 @@ namespace Coinflip
         public static readonly List<CoinSide> coinSides = new List<CoinSide>()
         {
             new CoinSide(0, "...", string.Empty),
-            new CoinSide(1, "Heads", @"Assets\Images\uk-1968-10p-heads.png"),
-            new CoinSide(2, "Tails", @"Assets\Images\uk-1968-10p-tails.png"),
+            new CoinSide(1, "Heads", @"Assets\Images\uk-1968-10p-heads.png", @"Assets\Images\uk-1968-10p-heads-32px.png"),
+            new CoinSide(2, "Tails", @"Assets\Images\uk-1968-10p-tails.png", @"Assets\Images\uk-1968-10p-tails-32px.png"),
             //new CoinSide(3, "Side", @"Assets\Images\uk-1968-10p-side.png"),
         };
 
