@@ -7,9 +7,8 @@ using System.Security.Cryptography;
 
 namespace Coinflip
 {
-    public class Logic
+    public static class Logic
     {
-
         public static readonly List<CoinSide> coinSides = new List<CoinSide>()
         {
             new CoinSide(0, "...", string.Empty),
@@ -41,7 +40,9 @@ namespace Coinflip
         public static CoinSide Flip()
         {
             int randomNumber = Convert.ToInt32(GenerateNumber(1, 2));
-            return coinSides[randomNumber];
+            CoinSide result = coinSides[randomNumber];
+            History.AddHistoryItem(result);
+            return result;
         }
     }
 }

@@ -28,6 +28,9 @@ namespace Coinflip
         public MainPage()
         {
             this.InitializeComponent();
+
+            // Load flip history
+            historyList.ItemsSource = History.HistoryList;
         }
 
         VungleAd sdkInstance = null;
@@ -62,10 +65,17 @@ namespace Coinflip
 
         private void flipBtn_Click(object sender, RoutedEventArgs e)
         {
-
             var result = Logic.Flip();
             resultCoinControl.SetCoinSide(result);
         }
+        private void historyPaneToggleBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            pageSplitView.IsPaneOpen = true;
+        }
 
+        private void historyPaneToggleBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            pageSplitView.IsPaneOpen = false;
+        }
     }
 }

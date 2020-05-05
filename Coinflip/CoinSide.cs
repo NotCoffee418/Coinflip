@@ -30,7 +30,7 @@ namespace Coinflip
                 if (imgBmp == null)
                 {
                     // No path, blank image
-                    if (ImgPath == string.Empty)
+                    if (ImgPath.Length == 0)
                         imgBmp = new BitmapImage();
                     // Create image from path
                     else imgBmp = new BitmapImage(new Uri($"ms-appx:///{ImgPath}"));
