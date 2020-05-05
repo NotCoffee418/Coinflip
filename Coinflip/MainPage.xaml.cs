@@ -60,8 +60,9 @@ namespace Coinflip
             InitVungleAd();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void flipBtn_Click(object sender, RoutedEventArgs e)
         {
+
             var result = Logic.Flip();
             resultCoinControl.SetCoinSide(result);
         }

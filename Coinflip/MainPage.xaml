@@ -11,7 +11,7 @@
 
     <Grid>
         <local:CoinControl x:Name="resultCoinControl" Width="200" Height="200"/>
-        <Button Content="Button" Margin="539,753,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button x:Name="flipBtn" Content="Flip a coin" Margin="539,753,0,0" VerticalAlignment="Top" Click="flipBtn_Click"/>
         
         
         <Vungle:VungleAdControl x:Name="vungleBottomBanner" AutomationProperties.AutomationId="vungleBottomBanner" IsBannerAd="True"
