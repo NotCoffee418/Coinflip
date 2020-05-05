@@ -66,7 +66,11 @@ namespace Coinflip
 
         private void CoinFlippingVisualiserWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            generatingProgressRing.IsActive = e.ProgressPercentage == 1;
+            if (e.ProgressPercentage == 1) 
+            {
+                generatingProgressRing.IsActive = true;
+                resultTxt.Text = "...";
+            }
         }
 
         private void CoinFlippingVisualiserWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -75,6 +79,8 @@ namespace Coinflip
             CoinSide side = (CoinSide)e.Result;
             DisplayCoinSide = side;
             coinImage.Source = side.ImgUri;
+            resultTxt.Text = side.Name;
+            generatingProgressRing.IsActive = false;
         }
     }
 }

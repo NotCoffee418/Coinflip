@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Vungle="using:VungleSDK.UI"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded" SizeChanged="Page_SizeChanged">
     <Page.TopAppBar>
         <CommandBar IsOpen="False" IsSticky="True" OverflowButtonVisibility="Collapsed" ClosedDisplayMode="Compact">
             <CommandBar.PrimaryCommands>
@@ -17,13 +17,14 @@
     </Page.TopAppBar>
 
     <Page.Content>
-        <SplitView x:Name="pageSplitView" IsPaneOpen="False" DisplayMode="Inline" PanePlacement="Right">
+        <SplitView x:Name="pageSplitView" IsPaneOpen="False" DisplayMode="Inline" PanePlacement="Right" OpenPaneLength="220">
             <SplitView.Content>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"></RowDefinition>
                         <RowDefinition Height="100"></RowDefinition>
                     </Grid.RowDefinitions>
+                    
                     <RelativePanel>
                         <local:CoinControl x:Name="resultCoinControl" MinWidth="200" MinHeight="200" Margin="10"
                             RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
@@ -35,7 +36,7 @@
                             Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="728" MinHeight="90" Grid.Row="1"/>
                 </Grid>
             </SplitView.Content>
-            <SplitView.Pane>
+            <SplitView.Pane >
                 <ListView Name="historyList" />
             </SplitView.Pane>
         </SplitView>

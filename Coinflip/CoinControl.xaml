@@ -10,8 +10,11 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-        <Image Name="coinImage" Width="200" Height="200" Source="Assets\StoreLogo.png"/>
-        <ProgressRing Name="generatingProgressRing" IsActive="False" Width="50" Height="50"/>
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Image Name="coinImage" Width="200" Height="200" Source="Assets\Images\uk-1968-10p-heads.png"/>
+            <ProgressRing Name="generatingProgressRing" IsActive="False" Width="50" Height="50"/>
+        </Grid>
+        <TextBlock x:Name="resultTxt" Text="" HorizontalAlignment="Center" Margin="10" FontSize="25" />
+    </StackPanel>
 </UserControl>

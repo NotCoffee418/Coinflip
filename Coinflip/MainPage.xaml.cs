@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using VungleSDK;
 using Windows.UI.Core;
 using Windows.ApplicationModel.Core;
+using Windows.Storage;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -69,7 +70,13 @@ namespace Coinflip
 
         private void flipBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Disable flip btn
             flipBtn.IsEnabled = false;
+
+            // Play Sound
+            SoundPlayer.PlayCoinFlipSound();
+
+            // Run flip "animation"
             var result = Logic.Flip();
             resultCoinControl.SetCoinSide(result);
         }
@@ -88,6 +95,14 @@ namespace Coinflip
         private void historyPaneToggleBtn_Unchecked(object sender, RoutedEventArgs e)
         {
             pageSplitView.IsPaneOpen = false;
+        }
+
+
+        // Open/close pane automatically/by default depending on app window size
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            bool paneOpen = e.NewSize.Width > 970;
+            historyPaneToggleBtn.IsChecked = paneOpen;
         }
     }
 }

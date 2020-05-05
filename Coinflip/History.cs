@@ -79,7 +79,7 @@ namespace Coinflip
 
                 // Add to history
                 var hi = new HistoryItem(Logic.coinSides[e.CoinSideId], e.FlipTime.ToString(CultureInfo.InvariantCulture));
-                HistoryList.Add(hi);
+                HistoryList.Add(hi); // Needs to be add since the list stores date descending
             }
         }
     }
