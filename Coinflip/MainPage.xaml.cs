@@ -36,6 +36,12 @@ namespace Coinflip
             // Watch backgroundworker to reenable flip btn
             resultCoinControl.CoinFlippingVisualiserWorker.RunWorkerCompleted += 
                 CoinFlippingVisualiserWorker_RunWorkerCompleted;
+
+            // Toggle mute btn accoording to settings
+            if (ApplicationData.Current.LocalSettings.Values["MuteFlipSound"] == null)
+                muteToggleBtn.IsChecked = false;
+            else
+                muteToggleBtn.IsChecked = (bool)ApplicationData.Current.LocalSettings.Values["MuteFlipSound"] == true;
         }
 
         VungleAd sdkInstance = null;
@@ -103,6 +109,18 @@ namespace Coinflip
         {
             bool paneOpen = e.NewSize.Width > 970;
             historyPaneToggleBtn.IsChecked = paneOpen;
+        }
+
+        // Mute controls
+        private void muteToggleBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["MuteFlipSound"] = true;
+            SoundPlayer.IsMuted = true;
+        }
+        private void muteToggleBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ApplicationData.Current.LocalSettings.Values["MuteFlipSound"] = false;
+            SoundPlayer.IsMuted = false;
         }
     }
 }

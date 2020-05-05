@@ -11,6 +11,7 @@
     <Page.TopAppBar>
         <CommandBar IsOpen="False" IsSticky="True" OverflowButtonVisibility="Collapsed" ClosedDisplayMode="Compact">
             <CommandBar.PrimaryCommands>
+                <AppBarToggleButton x:Name="muteToggleBtn" Icon="Mute" Label="Mute" Checked="muteToggleBtn_Checked" Unchecked="muteToggleBtn_Unchecked"/>
                 <AppBarToggleButton x:Name="historyPaneToggleBtn" Icon="List" Label="History" Checked="historyPaneToggleBtn_Checked" Unchecked="historyPaneToggleBtn_Unchecked"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
