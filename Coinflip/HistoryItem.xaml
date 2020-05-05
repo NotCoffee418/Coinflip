@@ -11,7 +11,7 @@
 
     <RelativePanel>
         <Image x:Name="coinImg" VerticalAlignment="Center" HorizontalAlignment="Center" Width="32" Height="32" UseLayoutRounding="True"
-                            ToolTipService.ToolTip="Heads or something" Source="ms-appx:///Assets\Images\uk-1968-10p-heads.png"
+                            ToolTipService.ToolTip="{Binding ElementName=resultTxt, Path=Text}" Source="ms-appx:///Assets\Images\uk-1968-10p-heads.png"
                             RelativePanel.AlignLeftWithPanel="True" Margin="0,2,5,0"/>
         <TextBlock x:Name="resultTxt" Text="Result" Margin="8 0 0 0" Foreground="White" RelativePanel.RightOf="coinImg" />
         <TextBlock x:Name="timeTxt" Text="Time" Margin="8 0 0 0" Foreground="White" RelativePanel.RightOf="coinImg" RelativePanel.Below="resultTxt"/>
