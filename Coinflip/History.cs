@@ -5,9 +5,11 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Windows.Storage;
+using Windows.UI.Xaml;
 
 namespace Coinflip
 {
@@ -16,7 +18,11 @@ namespace Coinflip
         static History()
         {
             LoadHistory();
+
+            // Save history on exit
+            Application.Current.Suspending += Current_Suspending;
         }
+
 
         public struct Entry
         {
@@ -39,13 +45,9 @@ namespace Coinflip
             DateTime now = DateTime.Now;
             HistoryList.Insert(0, new HistoryItem(side, now.ToString(CultureInfo.InvariantCulture)));
             EntryData.Insert(0, new Entry(side.Id, now));
-
-            // Update history file
-            string json = JsonConvert.SerializeObject(EntryData);
-            StorageFile flipHistoryFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-                "flipHistory.json", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(flipHistoryFile, json);
         }
+
+        
 
         public static async Task LoadHistory()
         {
@@ -81,6 +83,39 @@ namespace Coinflip
                 var hi = new HistoryItem(Logic.coinSides[e.CoinSideId], e.FlipTime.ToString(CultureInfo.InvariantCulture));
                 HistoryList.Add(hi); // Needs to be add since the list stores date descending
             }
+        }
+
+        /// <summary>
+        /// Likes to cause issues with threading, hence the try catch stop
+        /// </summary>
+        /// <param name="force"></param>
+        static int updateAttempts = 0;
+        public static async void UpdateHistoryFile(bool force = false)
+        {
+            try
+            {
+                // Update history file
+                string json = JsonConvert.SerializeObject(EntryData);
+                StorageFile flipHistoryFile = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+                    "flipHistory.json", CreationCollisionOption.ReplaceExisting);
+                await FileIO.WriteTextAsync(flipHistoryFile, json);
+                updateAttempts = 0;
+            }
+            catch (Exception ex)
+            {
+                if (force && updateAttempts < 3)
+                {
+                    Thread.Sleep(100);
+                    updateAttempts++;
+                    UpdateHistoryFile();
+                }
+
+            }            
+        }
+
+        private static void Current_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
+        {
+            UpdateHistoryFile(force:true);
         }
     }
 }

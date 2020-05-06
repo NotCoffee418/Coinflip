@@ -55,10 +55,7 @@ namespace Coinflip
         private void CoinFlippingVisualiserWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             CoinFlippingVisualiserWorker.ReportProgress(1); // Show progressring
-
-            // Randomized sleep because people like waiting apparently & show progress ring            
-            int delay = Convert.ToInt32(Logic.GenerateNumber(500, 1500));
-            Thread.Sleep(delay);
+            Thread.Sleep(750);
             e.Result = e.Argument;
 
             CoinFlippingVisualiserWorker.ReportProgress(100); // hide progressring

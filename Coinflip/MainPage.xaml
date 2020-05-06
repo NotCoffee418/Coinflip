@@ -29,7 +29,7 @@
                     <RelativePanel>
                         <local:CoinControl x:Name="resultCoinControl" MinWidth="200" MinHeight="200" Margin="10"
                             RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                        <Button x:Name="flipBtn" Content="Flip a coin" VerticalAlignment="Top" Click="flipBtn_Click"
+                        <Button x:Name="flipBtn" Content="Flip Coin" VerticalAlignment="Top" Click="flipBtn_Click"
                                 FontSize="20" Padding="20,10"
                                 RelativePanel.Below="resultCoinControl" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                     </RelativePanel>
